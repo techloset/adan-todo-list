@@ -1,27 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --Vintage: #2d4659;
+  --Cosmic: #f0eb8d;
+  --Rustic: #ea5455;
+  --Sunset: #210062;
+  --Industrial: #f45050;
+  --Blackout: #f3efe0;
+  --Vibrant: #4a0e5c;
+  --Coastal: #005874;
+  --Oceanic: #cbe4de;
+}
+.Vintage:after {
+  background: var(--Vintage);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.Cosmic:after {
+  background: var(--Cosmic);
+}
+
+.Rustic:after {
+  background: var(--Rustic);
+}
+
+.Sunset:after {
+  background: var(--Sunset);
+}
+
+.Industrial:after {
+  background: var(--Industrial);
+}
+
+.Blackout:after {
+  background: var(--Blackout);
+}
+
+.Vibrant:after {
+  background: var(--Vibrant);
+}
+
+.Coastal:after {
+  background: var(--Coastal);
+}
+
+.Oceanic:after {
+  background: var(--Oceanic);
+}
+
+@layer components {
+  .Black-orange-bg {
+    background-image: radial-gradient(#4f4c4b 1.5px, transparent 1.5px),
+      radial-gradient(#4f4c4b 1.5px, transparent 1.5px);
+    background-color: #232020;
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
