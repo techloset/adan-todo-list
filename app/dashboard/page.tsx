@@ -164,7 +164,7 @@ export default function Home() {
               const bgcolor = item.theme.name.split(" ")[0];
               return (
                 <div
-                  className="flex flex-row justify-between items-center pb-4"
+                  className={`flex flex-row justify-between items-center pb-4 ${styles.listItem} group`}
                   key={index}
                 >
                   <h3
@@ -174,14 +174,14 @@ export default function Home() {
                       {item.name}
                     </Link>
                   </h3>
-                  <div className="flex flex-row gap-[16px] md:gap-[24px] lg:gap-[36px]">
+                  <div className="hidden flex-row gap-[16px] md:gap-[24px] lg:gap-[36px] group-hover:flex">
                     <Link href={`/dashboard/edit/${item.id}`}>
                       <Image
                         src="/edit.svg"
-                        alt="delete"
+                        alt="edit"
                         height={50}
                         width={50}
-                        className="w-[24px] md:w-[36px] lg:w-[48px]"
+                        className={`w-[24px] md:w-[36px] lg:w-[48px] ${styles.editDeleteIcon}`}
                       />
                     </Link>
                     <button onClick={() => onDeleteHandler(item.id)}>
@@ -190,7 +190,7 @@ export default function Home() {
                         alt="delete"
                         height={50}
                         width={50}
-                        className="w-[24px] md:w-[36px] lg:w-[48px]"
+                        className={`w-[24px] md:w-[36px] lg:w-[48px] ${styles.editDeleteIcon}`}
                       />
                     </button>
                   </div>
