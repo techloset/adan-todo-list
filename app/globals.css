@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "MriyaGrotesk ExtraBold";
+  font-style: normal;
+  font-weight: 800;
+  src: local("MriyaGrotesk ExtraBold"), local("MriyaGrotesk-ExtraBold"),
+    url("/public/fonts/MriyaGrotesk-ExtraBold.ttf") format("truetype");
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

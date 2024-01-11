@@ -1,14 +1,9 @@
 import type { Metadata } from "next";
 import { Stint_Ultra_Condensed } from "next/font/google";
-import localFont from "next/font/local";
 
 import "./globals.css";
 import Toaster from "@/components/ToastContainer";
-const MriyaGrotesk = localFont({
-  src: "../public/fonts/MriyaGrotesk-ExtraBold.ttf",
-  variable: "--font-MriyaGrotesk",
-  weight: "900",
-});
+
 const Stint = Stint_Ultra_Condensed({
   subsets: ["latin"],
   weight: ["400"],
@@ -28,11 +23,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${MriyaGrotesk.variable} ${Stint.variable} Black-orange-bg `}
+        className={`${Stint.variable} Black-orange-bg `}
         suppressHydrationWarning
       >
         <Toaster />
-        <div className="font-MriyaGrotesk font-[900]">{children}</div>
+        <div className=" font-MriyaGrotesk-ExtraBold font-black">
+          {children}
+        </div>
       </body>
     </html>
   );
