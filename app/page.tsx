@@ -112,128 +112,116 @@ export default function Home() {
   }
   if (!user?.email) {
     return (
-      <div className="lg:px-8 d lg:h-screen h-auto px-4 grid lg:grid-cols-2 md:grid-cols-1 justify-center items-center gap-3 bg-rose-200">
-        <div className="md:w-[445px] w-[370px]  flex flex-col gap-6 mx-auto my-10">
-          <h1 className=" lg:text-5xl text-3xl font-bold text-purple-400">
-            Welcome
+      <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8 lg:h-screen h-auto font-thin">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+          <h1 className="mt-6 text-center text-3xl font-bold tracking-tight text-white ">
+            Sign in to your account
           </h1>
-          {variant == "LOGIN" ? (
-            <p className="text-md text-black font-medium italic">
-              Hi, Welcome back 👋{" "}
-            </p>
-          ) : (
-            <p className="text-md text-black font-medium italic">
-              Join our Todo app👋{" "}
-            </p>
-          )}
-
-          <div className="grid grid-cols-2 justify-center items-center ">
-            <div
-              className={`items-center hover:cursor-pointer justify-center flex font-semibold text-xl h-10  ${
-                variant == "LOGIN"
-                  ? "border-b-purple-700 "
-                  : "border-b-gray-400"
-              } border-b-4 rounded-sm `}
-              onClick={toggleVariant}
-            >
-              <p>Login</p>
-            </div>
-            <div
-              className={`items-center hover:cursor-pointer  ${
-                variant == "REGISTER"
-                  ? "border-b-purple-700 "
-                  : "border-b-gray-400"
-              } justify-center flex font-semibold text-xl h-10   border-b-4 rounded-sm `}
-              onClick={toggleVariant}
-            >
-              <p>Sign Up</p>
-            </div>
-          </div>
-          <form className="space-y-6" onSubmit={onHandleSubmit}>
-            {variant == "REGISTER" && (
+        </div>
+        <div className=" mt-8 sm:mx-auto sm:w-full sm:max-w-md ">
+          <div className=" bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
+            <form className="space-y-6 " onSubmit={onHandleSubmit}>
+              {variant == "REGISTER" && (
+                <div>
+                  <label
+                    className="block text-sm font-bold leading-5 text-gray-900"
+                    htmlFor="Username"
+                  >
+                    Username
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="Username"
+                      type="text"
+                      placeholder="Enter your Username.."
+                      onChange={(e) => setUsername(e.target.value)}
+                      value={username}
+                      disabled={isLoading}
+                      className={`block w-full rounded-md border-0 py-1.5 dark:placeholder:text-black text-black text-medium shadow-sm ring-1 ring-inset placeholder:text-opacity-25 focus:ring-2  focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 px-2 bg-blue-100 ${
+                        isLoading && "opacity-50 cursor-default"
+                      }`}
+                    />
+                  </div>
+                </div>
+              )}
               <div>
                 <label
                   className="block text-sm font-bold leading-5 text-gray-900"
-                  htmlFor="Username"
+                  htmlFor="Email"
                 >
-                  Username
+                  Email
                 </label>
                 <div className="mt-2">
                   <input
-                    id="Username"
-                    type="text"
-                    placeholder="Enter your Username.."
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
+                    id="email"
+                    type="email"
+                    placeholder="Enter your Email.."
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     disabled={isLoading}
-                    className={`block w-full rounded-md border-0 py-1.5 text-gray-900 text-medium shadow-sm ring-1 ring-inset dark:ring-purple-300 dark:placeholder:text-black placeholder:text-opacity-25 focus:ring-2  focus:ring-inset focus:ring-purple-300 sm:text-sm sm:leading-6 px-2 bg-red-300/80 ${
+                    className={`block w-full rounded-md border-0 py-1.5 dark:placeholder:text-black text-black text-medium shadow-sm ring-1 ring-inset placeholder:text-opacity-25 focus:ring-2  focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 px-2 bg-blue-100 ${
                       isLoading && "opacity-50 cursor-default"
                     }`}
                   />
                 </div>
               </div>
-            )}
-            <div>
-              <label
-                className="block text-sm font-bold leading-5 text-gray-900"
-                htmlFor="Email"
+
+              <div>
+                <label
+                  className="block text-sm font-bold leading-5 text-gray-900"
+                  htmlFor="Password"
+                >
+                  Password
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password.."
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    disabled={isLoading}
+                    className={`block w-full rounded-md border-0 py-1.5 dark:placeholder:text-black text-black text-medium shadow-sm ring-1 ring-inset placeholder:text-opacity-25 focus:ring-2  focus:ring-inset focus:ring-white sm:text-sm sm:leading-6 px-2 bg-blue-100 ${
+                      isLoading && "opacity-50 cursor-default"
+                    }`}
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className={`flex hover:cursor-pointer justify-center rounded-md px-3 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 w-full bg-blue-300 text-slate-950 ${
+                  isLoading && "opacity-50 cursor-default"
+                }`}
               >
-                Email
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your Email.."
-                  onChange={(e) => setEmail(e.target.value)}
-                  value={email}
-                  disabled={isLoading}
-                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 text-medium shadow-sm ring-1 ring-inset dark:ring-purple-300 dark:placeholder:text-black placeholder:text-opacity-25 focus:ring-2  focus:ring-inset focus:ring-purple-300 sm:text-sm sm:leading-6 px-2 bg-red-300/80 ${
-                    isLoading && "opacity-50 cursor-default"
-                  }`}
-                />
+                Submit
+              </button>
+            </form>
+
+            <div className="mt-6">
+              <div className="relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t  border-gray-300" />
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className=" px-2  bg-white  text-gray-500">
+                    Or contine with
+                  </span>
+                </div>
               </div>
             </div>
-
-            <div>
-              <label
-                className="block text-sm font-bold leading-5 text-gray-900"
-                htmlFor="Password"
-              >
-                Password
-              </label>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  type="password"
-                  placeholder="Enter your password.."
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  disabled={isLoading}
-                  className={`block w-full rounded-md border-0 py-1.5 text-gray-900 text-medium shadow-sm ring-1 ring-inset dark:ring-purple-300 dark:placeholder:text-black placeholder:text-opacity-25 focus:ring-2  focus:ring-inset focus:ring-purple-300 sm:text-sm sm:leading-6 px-2 bg-red-300/80 ${
-                    isLoading && "opacity-50 cursor-default"
-                  }`}
-                />
+            <div className="flex gap-2 justify-center text-center text-sm mt-6 px-2  text-gray-500">
+              <div>
+                {variant == "LOGIN"
+                  ? "New to Messenger?"
+                  : "Already have an account?"}
+              </div>
+              <div onClick={toggleVariant} className="underline cursor-pointer">
+                {variant == "LOGIN" ? "Create an account" : "Login"}
               </div>
             </div>
-
-            <button
-              type="submit"
-              className={`flex hover:cursor-pointer justify-center rounded-md px-3 py-2 text-sm font-semibold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 w-full bg-purple-400 ${
-                isLoading && "opacity-50 cursor-default"
-              }`}
-            >
-              Submit
-            </button>
-          </form>
+          </div>
         </div>
-        <Image
-          src="/auth-image.svg"
-          alt="auth"
-          height={1000}
-          width={1000}
-          className="hidden lg:flex"
-        />
       </div>
     );
   }

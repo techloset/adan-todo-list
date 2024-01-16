@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Stint_Ultra_Condensed } from "next/font/google";
+import { Stint_Ultra_Condensed, Poppins } from "next/font/google";
 
 import "./globals.css";
 import Toaster from "@/components/ToastContainer";
@@ -8,6 +8,11 @@ const Stint = Stint_Ultra_Condensed({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-Stint",
+});
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${Stint.variable} Black-orange-bg `}
+        className={`${Stint.variable} ${poppins.variable} Black-orange-bg `}
         suppressHydrationWarning
       >
         <Toaster />

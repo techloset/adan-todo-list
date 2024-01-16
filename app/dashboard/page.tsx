@@ -70,7 +70,6 @@ const theme = {
 export default function Home() {
   const [list, setList] = useState<ListType[]>([]);
 
-  const [open, setOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const [user] = useAuthState(auth);
@@ -136,19 +135,11 @@ export default function Home() {
 
   return (
     <>
-      {open && <LogoutModel isOpen={open} onClose={() => setOpen(false)} />}
-
       <div className="Black-orange-bg font-bold pb-10 lg:h-screen h-auto  text-[#F4F4F4]">
         <div className=" sticky top-0 left-0 flex justify-between items-center px-6 py-6">
           <Link href={"/"}>
             <Image src="/logo.svg" alt="Logo" height={50} width={50} />
           </Link>
-          <div
-            onClick={() => setOpen(true)}
-            className="bg-rose-500 rounded-2xl p-3 cursor-pointer "
-          >
-            <Image src="/log-out.svg" alt="log out" height={25} width={25} />
-          </div>
         </div>
         <h1 className="lg:text-[96px] md:text-[69px]  font-normal text-[48px]  pb-10 flex items-center justify-center font-Stint">
           Todo Lists<div className="text-[#FF7315]">.</div>
@@ -198,7 +189,6 @@ export default function Home() {
               );
             })
           )}
-
           <button
             className={`w-fit inline-block relative  z-[100]  ${styles.background_animation} after:bg-[#ff6600]`}
           >

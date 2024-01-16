@@ -15,6 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         Stint: ["var(--font-Stint)"],
+        Poppins: ["var(--font-poppins)"],
         "MriyaGrotesk-ExtraBold": ["MriyaGrotesk ExtraBold", "sans-serif"],
       },
     },
